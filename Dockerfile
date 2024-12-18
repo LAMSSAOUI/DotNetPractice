@@ -6,10 +6,10 @@ WORKDIR /source
 COPY . .
 
 # Restore dependencies
-#RUN dotnet restore
+RUN dotnet restore "./DotNetPractice/ConsoleApp1.csproj" --disable-parallel
 
 # Build the project
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish "./DotNetPractice/ConsoleApp1.csproj" -c Release -o /app --no-restore
 
 # Use the runtime image for the final build
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
