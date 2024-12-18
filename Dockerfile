@@ -6,7 +6,7 @@ WORKDIR /source
 COPY . .
 
 # Restore dependencies
-RUN dotnet restore
+#RUN dotnet restore
 
 # Build the project
 RUN dotnet publish -c Release -o /app
